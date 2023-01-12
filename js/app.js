@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 </button>
 </td>
     </tr>`
-            counter++
+            
             const updateButtons = document.querySelectorAll('.is-warning')
             updateButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
