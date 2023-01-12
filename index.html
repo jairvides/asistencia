@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/d2216e1be8.js" crossorigin="anonymous"></script>
+    <title>Asistencia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <img src="/img/logo.png" alt="Imagen logo de asistencia" width="64" height="64">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true">Asistencia</span>
+                    <span aria-hidden="true">Registro Diezmos</span>
+
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="crud-container">
+            <div class="crud-header">
+                <h1>Asistencia</h1>
+                <button class="button is-success" id="openRegisterModal">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>Registrar Asistencia</span>
+                </button>
+            </div>
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Servicio</th>
+                        <th>Caballeros</th>
+                        <th>Dorcas</th>
+                        <th>Amigos</th>
+                        <th>Simpatizantes</th>
+                        <th>Asistentes</th>
+                        <th>Niños</th>
+                        <th>Ofrenda</th>
+                        <th>Descripción</th>
+                        <th>Total</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody id="asistantTable">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Registrar Asistencia</p>
+                <button class="delete" aria-label="close" id="closeRegisterModal"></button>
+            </header>
+            <section class="modal-card-body">
+                <form id="register-form" action="">
+                    <div class="field">
+                        <label class="label">Fecha</label>
+                        <div class="control">
+                            <input class="input" type="date" name="fecha" placeholder="Ingresa la Fecha">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Carácter del Servicio</label>
+                        <div class="control">
+                            <div class="select">
+                                <select name="servicios">
+                                    <option>Seleccione</option>
+                                    <option name="servicios1">Escuela Dominical</option>
+                                    <option name="servicios2">Culto de Oración y Adoración</option>
+                                    <option name="servicios3">Dorcas</option>
+                                    <option name="servicios4">Conquistadores Pentecostales</option>
+                                    <option name="servicios5">Culto de Barrio</option>
+                                    <option name="servicios6">Caballeros</option>
+                                    <option name="servicios7">Misionero</option>
+                                    <option name="servicios8">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Caballeros</label>
+                        <div class="control">
+                            <input class="input" type="number" name="caballeros"
+                                placeholder="Digite el número de Caballeros" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Dorcas</label>
+                        <div class="control">
+                            <input class="input" type="number" name="dorcas" placeholder="Digite el número de Dorcas"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Amigos</label>
+                        <div class="control">
+                            <input class="input" type="number" name="amigos" placeholder="Digite el número de Amigos"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Simpatizantes</label>
+                        <div class="control">
+                            <input class="input" type="number" name="simpatizantes"
+                                placeholder="Digite el número de Simpatizantes" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Asistentes</label>
+                        <div class="control">
+                            <input class="input" type="number" name="asistentes"
+                                placeholder="Digite el número de Asistentes" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Niños</label>
+                        <div class="control">
+                            <input class="input" type="number" name="ninos" placeholder="Digite el número de Niños"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Ofrenda</label>
+                        <div class="control">
+                            <input class="input" type="number" name="ofrendas" placeholder="Digite el número de Ofrenda"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Descripción</label>
+                        <div class="control">
+                            <textarea class="textarea" name="mensaje" placeholder="Escriba una Descripción"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Total</label>
+                        <div class="control">
+                            <input class="input" type="number" name="total" placeholder="Total Asistentes" min="0">
+                        </div>
+                    </div>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" type="submit">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span>Registrar</span>
+                </button>
+            </footer>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="modal-update">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Actualizar Asistencia</p>
+                <button class="delete" aria-label="close" id="closeUpdateModal"></button>
+            </header>
+            <section class="modal-card-body">
+                <form id="update-form" action="">
+                    <div class="field">
+                        <label class="label">Fecha</label>
+                        <div class="control">
+                            <input class="input" type="date" name="fecha" placeholder="Ingresa la Fecha">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Carácter del Servicio</label>
+                        <div class="control">
+                            <div class="select">
+                                <select name="servicios">
+                                    <option>Seleccione</option>
+                                    <option name="servicios1">Escuela Dominical</option>
+                                    <option name="servicios2">Culto de Oración y Adoración</option>
+                                    <option name="servicios3">Dorcas</option>
+                                    <option name="servicios4">Conquistadores Pentecostales</option>
+                                    <option name="servicios5">Culto de Barrio</option>
+                                    <option name="servicios6">Caballeros</option>
+                                    <option name="servicios7">Misionero</option>
+                                    <option name="servicios8">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Caballeros</label>
+                        <div class="control">
+                            <input class="input" type="number" name="caballeros"
+                                placeholder="Digite el número de Caballeros" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Dorcas</label>
+                        <div class="control">
+                            <input class="input" type="number" name="dorcas" placeholder="Digite el número de Dorcas"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Amigos</label>
+                        <div class="control">
+                            <input class="input" type="number" name="amigos" placeholder="Digite el número de Amigos"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Simpatizantes</label>
+                        <div class="control">
+                            <input class="input" type="number" name="simpatizantes"
+                                placeholder="Digite el número de Simpatizantes" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Asistentes</label>
+                        <div class="control">
+                            <input class="input" type="number" name="asistentes"
+                                placeholder="Digite el número de Asistentes" min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Niños</label>
+                        <div class="control">
+                            <input class="input" type="number" name="ninos" placeholder="Digite el número de Niños"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Ofrenda</label>
+                        <div class="control">
+                            <input class="input" type="number" name="ofrendas" placeholder="Digite el número de Ofrenda"
+                                min="0">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Descripción</label>
+                        <div class="control">
+                            <textarea class="textarea" name="mensaje" placeholder="Escriba una Descripción"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Total</label>
+                        <div class="control">
+                            <input class="input" type="number" name="total" placeholder="Total Asistentes" min="0">
+                        </div>
+                    </div>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" type="submit">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span>Actualizar</span>
+                </button>
+            </footer>
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
