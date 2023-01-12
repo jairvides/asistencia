@@ -42,7 +42,7 @@ closeUpdateModal.addEventListener('click', showUpdateModal)
 const inputFields = [registerForm['caballeros'], registerForm['dorcas'], registerForm['amigos'], registerForm['simpatizantes'], registerForm['asistentes'], registerForm['ninos']];
 const totalInput = registerForm['total'];
 
-const inputFields = [updateForm['caballeros'], updateForm['dorcas'], updateForm['amigos'], updateForm['simpatizantes'], updateForm['asistentes'], updateForm['ninos']];
+const inputFieldsUpdates = [updateForm['caballeros'], updateForm['dorcas'], updateForm['amigos'], updateForm['simpatizantes'], updateForm['asistentes'], updateForm['ninos']];
 const totalUpdateInput = updateForm['total'];
 
 // add event listener to each input field
@@ -50,8 +50,8 @@ inputFields.forEach(inputField => {
     inputField.addEventListener('input', updateTotal);
 });
 
-inputFields.forEach(inputField => {
-    inputField.addEventListener('input', updateTotalForm);
+inputFieldsUpdates.forEach(inputFieldUpdate => {
+    inputFieldUpdate.addEventListener('input', updateTotalForm);
 });
 
 // update total function
@@ -65,8 +65,8 @@ function updateTotal() {
 
 function updateTotalForm() {
     let total = 0;
-    inputFields.forEach(inputField => {
-        total += Number(inputField.value);
+    inputFieldsUpdates.forEach(inputFieldUpdate => {
+        total += Number(inputFieldUpdate.value);
     });
     totalUpdateInput.value = total;
 }
