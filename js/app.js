@@ -76,11 +76,11 @@ function updateTotalForm() {
 window.addEventListener('DOMContentLoaded', async (e) => {
     await asistantRef.on('value', (asistentes) => {
         asistantTable.innerHTML = ''
-        let counter = 1
+        
         asistentes.forEach((asistente) => {
             let asistenteData = asistente.val()
             asistantTable.innerHTML += `<tr>
-    <th>${counter}</th>
+    <th>#</th>
     <td>${asistenteData.Fecha}</td>
     <td>${asistenteData.Servicio}</td>
     <td>${asistenteData.Caballeros}</td>
