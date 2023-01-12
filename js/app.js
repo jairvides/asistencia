@@ -73,6 +73,55 @@ function updateTotalForm() {
 
 /* Fin del código */
 
+asistantRef.on('value', updateTotals);
+
+function updateTotals(asistentes) {
+    // code to calculate and update totals
+    const caballerosTd = document.getElementById('total-caballeros');
+    const dorcasTd = document.getElementById('total-dorcas');
+    const amigosTd = document.getElementById('total-amigos');
+    const simpatizantesTd = document.getElementById('total-simpatizantes');
+    const asistentesTd = document.getElementById('total-asistentes');
+    const ninosTd = document.getElementById('total-ninos');
+    const totalAttendeesTd = document.getElementById('total-attendees');
+    const ofrendaTd = document.getElementById('total-ofrenda');
+
+    let totalCaballeros = 0;
+    let totalDorcas = 0;
+    let totalAmigos = 0;
+    let totalSimpatizantes = 0;
+    let totalAsistentes = 0;
+    let totalNinos = 0;
+    let totalOfrenda = 0;
+
+    // retrieve data from asistantTable
+    const rows = asistantTable.querySelectorAll('tr');
+    for (const row of rows) {
+        const cells = row.querySelectorAll('td');
+        totalCaballeros += Number(cells[3].textContent);
+        totalDorcas += Number(cells[4].textContent);
+        totalAmigos += Number(cells[5].textContent);
+        totalSimpatizantes += Number(cells[6].textContent);
+        totalAsistentes += Number(cells[7].textContent);
+        totalNinos += Number(cells[8].textContent);
+        totalOfrenda += Number(cells[9].textContent);
+    }
+
+    // update tfoot cells with totals
+    caballerosTd.textContent = totalCaballeros;
+    dorcasTd.textContent = totalDorcas;
+    amigosTd.textContent = totalAmigos;
+    simpatizantesTd.textContent = totalSimpatizantes;
+    asistentesTd.textContent = totalAsistentes;
+    ninosTd.textContent = totalNinos;
+    ofrendaTd.textContent = totalOfrenda;
+    totalAttendeesTd.textContent = totalCaballeros + totalDorcas + totalAmigos + totalSimpatizantes + totalAsistentes + totalNinos;
+
+
+}
+
+
+
 window.addEventListener('DOMContentLoaded', async (e) => {
     await asistantRef.on('value', (asistentes) => {
         asistantTable.innerHTML = ''
